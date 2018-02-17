@@ -1,0 +1,2 @@
+class WeisController < ApplicationController
+end
