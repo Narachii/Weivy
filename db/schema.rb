@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 20180218051952) do
     t.string   "address"
     t.float    "latitude",               limit: 24
     t.float    "longitude",              limit: 24
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "avatar"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
