@@ -22,6 +22,6 @@ class UserLocation < ApplicationRecord
   private
 
   def delete_old_location
-    UserLocation.where.not(id: id).delete_all
+    UserLocation.where(user_id: user_id).where.not(id: id).delete_all
   end
 end
