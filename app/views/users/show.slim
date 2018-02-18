@@ -9,7 +9,6 @@ table
 - if params[:request_wei].present?
   - @request_users.each do |user|
     = link_to "#{user.nickname}", user_path(user.id)
-    -binding.pry
     = simple_form_for(user.weis.find_by(receiver: current_user.id)) do |f|
       = f.hidden_field :wei, value: current_user.id
       = f.button :submit, "Wei"
