@@ -12,13 +12,17 @@
 default: &default
   adapter: mysql2
   encoding: utf8
+  charset: utf8
+  collation: utf8_general_ci
   pool: 5
   username: root
   password:
-  socket: /tmp/mysql.sock
 
 development:
   <<: *default
+  encoding: utf8
+  charset: utf8
+  collation: utf8_general_ci
   database: Weivy_development
 
 # Warning: The database defined as "test" will be erased and
