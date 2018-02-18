@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180217124922) do
+ActiveRecord::Schema.define(version: 20180218025850) do
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nickname",                            null: false
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20180217124922) do
     t.boolean  "wei"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["sender"], name: "fk_rails_585bcf4dd4", using: :btree
   end
 
+  add_foreign_key "weis", "users", column: "sender"
 end
