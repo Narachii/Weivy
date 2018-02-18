@@ -1,24 +1,19 @@
-h2
-  | アカウント作成
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :ニックネーム
+.lpo
+  .balloon1
+    p
+     span.wei wei
+     | する?
+
+
+  p.sub-title
+    | 気軽に異性とつながる
     br
-    = f.text_field :nickname, autofocus: true
-  .field
-    = f.label :パスワード
-    - if @minimum_password_length
-      em
-        | (
-        = @minimum_password_length
-        |  characters minimum)
-    br
-    = f.password_field :password, autocomplete: "off"
-  .field
-    = f.label :パスワード確認用
-    br
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .actions
-    = f.submit "登録する"
-= render "devise/shared/links"
+    | 新感覚出会い系サービス
+
+  h1 weivy
+
+  = link_to "Facebookで登録", user_omniauth_authorize_path
+  p
+    | Facebook友達にバレずにwei
+    span wei
+    | できるよ

@@ -1,18 +1,19 @@
-h2
-  | Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :ニックネーム
+.lpo
+  .balloon1
+    p
+     span.wei wei
+     | する?
+
+
+  p.sub-title
+    | 気軽に異性とつながる
     br
-    = f.text_field :nickname
-  .field
-    = f.label :パスワード
-    br
-    = f.password_field :password, autocomplete: "off"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+    | 新感覚出会い系サービス
+
+  h1 weivy
+
+  = link_to "Facebookでログイン", user_facebook_omniauth_authorize_path
+  p
+    | Facebook友達にバレずにwei
+    span wei
+    | できるよ
