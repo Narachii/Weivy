@@ -23,6 +23,9 @@ gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'sass-rails', '~> 5.0'
 gem 'slim-rails'
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'jquery-rails'
+''
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
