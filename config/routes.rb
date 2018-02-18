@@ -4,9 +4,10 @@ Rails.application.routes.draw do
     get "sign_out", :to => "users/sessions#destroy"
   end
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  root to: "weis#index"
+  root to: "statics#index"
 
   resources :users
   resources :weis
+  resources :statics
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

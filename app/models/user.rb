@@ -26,7 +26,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauthable, omniauth_providers: [:facebook],
          :authentication_keys => [:nickname]
+
   has_many :weis, foreign_key: "sender", class_name: "Wei"
+
+  geocoded_by :address
+  after_validation :geocode
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
