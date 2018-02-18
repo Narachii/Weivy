@@ -21,6 +21,10 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
+
 gem 'sass-rails', '~> 5.0'
 gem 'slim-rails'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
