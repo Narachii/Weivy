@@ -1,0 +1,61 @@
+body.lp
+  background-image: url(/images/top3.jpg)
+  background-size: cover
+  position: relative
+  color: white
+  &::before
+    z-index: 0
+    content: ""
+    display: block
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background-color: rgba(0,0,0,0.4)
+  .lpo
+    position: absolute
+    width: 100%
+    text-align: center
+    a
+      background-color: blue
+      color: white
+      padding: 8px
+      border-radius: 5px
+      display: block
+      margin: 10px auto
+      width: 50%
+    h1
+      font-family: "indie Flower", cursive
+      font-size: 8em
+    span.wei
+      font-family: "indie Flower", cursive
+    .sub-title
+      font-size: 20px
+
+
+.balloon1
+  position: relative
+  display: inline-block
+  margin: 1.5em 0
+  padding: 10px 50px
+  min-width: 120px
+  max-width: 100%
+  color: #555
+  font-size: 30px
+  background: #fff
+  border-radius: 30px
+
+.balloon1:before
+  content: ""
+  position: absolute
+  top: 100%
+  left: 50%
+  margin-left: -15px
+  border: 15px solid transparent
+  border-top: 15px solid #fff
+
+.balloon1
+  p
+    margin: 0
+    padding: 0

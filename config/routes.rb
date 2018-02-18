@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "weis#index"
+  root to: "statics#index"
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'''
@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   end
   resources :users
   resources :weis
+  resources :statics
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

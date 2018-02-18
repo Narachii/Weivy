@@ -1,7 +1,15 @@
-function hoge() {
+function getLocation() {
   if (navigator.geolocation) {
-    console.log("OK")
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback)
   } else {
     console.log("NG")
   }
+}
+
+function successCallback(position) {
+  console.log(position)
+}
+
+function errorCallback(errors) {
+  console.log(errors)
 }
