@@ -53,6 +53,6 @@ test:
 #
 production:
   <<: *default
-  database: Weivy_production
-  username: Weivy
+  database: heroku_a0dcabc67991df3
+  username: bee35c0e46230c
   password: <%= ENV['WEIVY_DATABASE_PASSWORD'] %>
