@@ -197,7 +197,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (>= 2.6.0)
-  bootstrap
+  bootstrap (~> 4.0.0.beta2.1)
   byebug
   coffee-rails (~> 4.2)
   devise

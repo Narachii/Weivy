@@ -1,6 +1,6 @@
 class WeiChannel < ApplicationCable::Channel
   def subscribed
-    # stream_from "some_channel"
+     stream_from wei_channel
   end
 
   def unsubscribed
@@ -8,5 +8,6 @@ class WeiChannel < ApplicationCable::Channel
   end
 
   def speak
+    ActionCable.server.broadcast 'wei_channel', user: data['user']
   end
 end
