@@ -71,8 +71,10 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.21)
+    geocoder (1.4.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gmaps4rails (2.1.2)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -197,10 +199,12 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (>= 2.6.0)
-  bootstrap
+  bootstrap (~> 4.0.0.beta2.1)
   byebug
   coffee-rails (~> 4.2)
   devise
+  geocoder
+  gmaps4rails
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
