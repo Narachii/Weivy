@@ -11,4 +11,5 @@
 #
 
 class Wei < ApplicationRecord
+  belongs_to :user, foreign_key: "sender", class_name: "User"
 end

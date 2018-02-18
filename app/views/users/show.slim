@@ -1,5 +1,22 @@
 h1 Users#show
 
+table
+  tr
+    th
+      = link_to "Send_wei", user_path(current_user)
+    th
+      = link_to "Wei request", user_path(current_user, request_wei: "true")
+- if params[:request_wei].present?
+  - @request_users.each do |user|
+    = link_to "#{user.nickname}", user_path(user.id)
+- else
+  - @users.each do |user|
+    = link_to "#{user.nickname}", user_path(user.id)
+    = simple_form_for(@wei) do |f|
+      = f.hidden_field :sender, value: current_user.id
+      = f.hidden_field :receiver, value: user.id
+      = f.button :submit, "Wei"
+
 p = current_user.nickname
 p = current_user.id
 

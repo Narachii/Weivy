@@ -26,6 +26,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :authentication_keys => [:nickname]
+  has_many :weis, foreign_key: "sender", class_name: "Wei"
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
