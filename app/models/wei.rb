@@ -11,5 +11,6 @@
 #
 
 class Wei < ApplicationRecord
+  after_create_commit { WeiBroadcastJob.perform_later self }
   belongs_to :user, foreign_key: "sender", class_name: "User"
 end

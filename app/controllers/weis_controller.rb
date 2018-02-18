@@ -7,8 +7,8 @@ class WeisController < ApplicationController
   end
 
   def create
-    wei = Wei.new(wei_params)
-    wei.save
+  #  wei = Wei.new(wei_params)
+   # wei.save
   end
 
   def update
