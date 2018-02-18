@@ -7,18 +7,20 @@ table
     th
       = link_to "Wei request", user_path(current_user, request_wei: "true")
 - if params[:request_wei].present?
-  - @request_users.each do |user|
-    = link_to "#{user.nickname}", user_path(user.id)
-    = simple_form_for(user.weis.find_by(receiver: current_user.id)) do |f|
-      = f.hidden_field :wei, value: current_user.id
-      = f.button :submit, "Wei"
+  - @request_users.each_with_index do |user, i|
+    div.user_wrapper data-user-id="#{i + 1}"
+      = render user
+      = simple_form_for(user.weis.find_by(receiver: current_user.id)) do |f|
+        = f.hidden_field :wei, value: current_user.id
+        = f.button :submit, "Wei"
 - else
-  - @users.each do |user|
-    = link_to "#{user.nickname}", user_path(user.id)
-    = simple_form_for(@wei) do |f|
-      = f.hidden_field :sender, value: current_user.id
-      = f.hidden_field :receiver, value: user.id
-      = f.button :submit, "Wei"
+  - @users.each.with_index do |user, i|
+    div.user_wrapper data-user-id="#{i + 1}"
+      = link_to "#{user.nickname}", user_path(user.id)
+      = simple_form_for(@wei) do |f|
+        = f.hidden_field :sender, class: "sender_#{i + 1}", value: current_user.id
+        = f.hidden_field :receiver, class: "receiver_#{i + 1}", value: user.id
+        = f.button :submit, "Wei", id: "wei_button"
 
 p = current_user.nickname
 p = current_user.id
