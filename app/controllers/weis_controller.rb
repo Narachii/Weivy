@@ -12,7 +12,11 @@ class WeisController < ApplicationController
 
   def update
     wei = Wei.find(params[:id])
-    wei.update(wei_params)
+    if wei.update(wei_params)
+      redirect_to wei_path(wei)
+    else
+      redirect_to user_path(current_user)
+    end
   end
 
   private
