@@ -46,7 +46,7 @@ class User < ApplicationRecord
         # userモデルが持っているカラムをそれぞれ定義していく
         user.password = Devise.friendly_token[0,20]
         user.nickname = auth.info.name
-        user.avatar = auth.info.avatar
+        user.avatar = auth.info.image
         user.uid = auth.uid
         user.provider = auth.provider
       end
