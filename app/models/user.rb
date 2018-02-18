@@ -30,6 +30,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauthable, omniauth_providers: [:facebook],
          :authentication_keys => [:nickname]
 
+  has_one :location, class_name: "UserLocation"
   has_many :weis, foreign_key: "sender", class_name: "Wei"
 
   def self.find_first_by_auth_conditions(warden_conditions)

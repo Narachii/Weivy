@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180218083624) do
+ActiveRecord::Schema.define(version: 20180218084329) do
 
   create_table "user_locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",               null: false
     t.string   "address"
     t.float    "latitude",   limit: 24
     t.float    "longitude",  limit: 24

@@ -3,6 +3,7 @@
 # Table name: user_locations
 #
 #  id         :integer          not null, primary key
+#  user_id    :integer          not null
 #  address    :string(255)
 #  latitude   :float(24)
 #  longitude  :float(24)
