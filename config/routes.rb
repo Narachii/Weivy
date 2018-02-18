@@ -3,9 +3,14 @@ Rails.application.routes.draw do
   root to: "statics#index"
 
   resources :users
-  resources :weis
+  resources :weis do
+    member do
+      get "complete"
+    end
+  end
+  resources :statics
+  resources :user_locations
 
    mount ActionCable.server => '/cable'
-   resources :statics
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

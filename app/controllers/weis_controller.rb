@@ -3,6 +3,7 @@ class WeisController < ApplicationController
   end
 
   def show
+    @wei = Wei.find(params[:id])
   end
 
   def create
@@ -17,6 +18,10 @@ class WeisController < ApplicationController
     else
       redirect_to user_path(current_user)
     end
+  end
+
+  def complete
+    @wei_girl = Wei.find(params[:id]).user
   end
 
   private
