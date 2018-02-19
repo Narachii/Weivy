@@ -4,4 +4,9 @@ class UsersController < ApplicationController
     @wei = Wei.new
     @request_users = User.joins(:weis).where(weis: { receiver: current_user.id  })
   end
+
+  def edit
+    @user = current_user   
+
+  end
 end
