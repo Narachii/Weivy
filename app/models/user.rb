@@ -33,6 +33,14 @@ class User < ApplicationRecord
   has_one :location, class_name: "UserLocation"
   has_many :weis, foreign_key: "sender", class_name: "Wei"
 
+  delegate :latitude, to: :location
+  delegate :longitude, to: :location
+
+  enum sex: {
+    mendy: 0,
+    laidy: 1
+  }
+
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
       if login = conditions.delete(:login)
@@ -63,5 +71,22 @@ class User < ApplicationRecord
   end
   def email_changed?
     false
+  end
+
+  def get_wei_target(target_dist)
+    set_calc_distance
+    targets = []
+    other_sex_users = User.where.not(sex: sex)
+    other_sex_users.each do |user|
+      dist = calcer.calc_dist(user.latitude, user.longitude)
+      targets << user if dist < target_dist
+    end
+    targets
+  end
+
+  private
+
+  def set_calc_distance
+    @calcer ||= Wei::CalcDistance.new(latitude, longitude)
   end
 end

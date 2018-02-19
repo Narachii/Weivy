@@ -12,7 +12,10 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user   
+    @user = current_user
+  end
 
+  def weier
+    current_user.get_wei_target(params[:dist])
   end
 end
