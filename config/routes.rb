@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: "statics#index"
 
-  resources :users
+  resources :users do
+    collection do
+      get "weier"
+    end
+  end
   resources :weis do
     member do
       get "complete"

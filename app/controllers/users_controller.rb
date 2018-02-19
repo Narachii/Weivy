@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show,:update,:edit]
+  before_action :set_user, only: [:show, :update, :edit]
 
   def new
     @user = current_user
@@ -9,10 +9,6 @@ class UsersController < ApplicationController
     @users = User.where.not(id: current_user.id)
     @wei = Wei.new
     @request_users = User.joins(:weis).where(weis: { receiver: current_user.id  })
-  end
-
-  def edit
-    @user = current_user   
   end
 
   def update
@@ -25,9 +21,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def weier
+    # TODO ajaxの処理追加（renderする）
+    current_user.get_wei_target(params[:dist])
+  end
 
   private
-  
+
   def edit_user_params
     params.require(:user).permit(:nickname)
   end
