@@ -4,6 +4,8 @@ class WeisController < ApplicationController
 
   def show
     @wei = Wei.find(params[:id])
+    @receiver = User.find(@wei.receiver)
+    @sender = User.find(@wei.sender)
   end
 
   def create
