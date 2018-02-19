@@ -1,3 +1,13 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  $('#wei_button').on 'click', ->
+    number = $(this).parent().parent().data("user-id")
+    sender_class = ".sender_#{number}"
+    receiver_class = ".receiver_#{number}"
+    sender = $("#{sender_class}").val()
+    receiver = $("#{receiver_class}").val()
+
+    wei = { sender_id: sender, receiver_id: receiver}
+
+    App.wei.speak(wei)
+
+    return

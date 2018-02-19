@@ -18,6 +18,9 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  provider               :string(255)
+#  uid                    :string(255)
+#  avatar                 :string(255)
 #
 
 class User < ApplicationRecord
@@ -27,10 +30,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauthable, omniauth_providers: [:facebook],
          :authentication_keys => [:nickname]
 
+  has_one :location, class_name: "UserLocation"
   has_many :weis, foreign_key: "sender", class_name: "Wei"
-
-  geocoded_by :address
-  after_validation :geocode
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup

@@ -10,27 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180218051952) do
+ActiveRecord::Schema.define(version: 20180218084329) do
+
+  create_table "user_locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",               null: false
+    t.string   "address"
+    t.float    "latitude",   limit: 24
+    t.float    "longitude",  limit: 24
+    t.datetime "expired_at"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "nickname",                                       null: false
-    t.integer  "sex",                               default: 0,  null: false
+    t.string   "nickname",                            null: false
+    t.integer  "sex",                    default: 0,  null: false
     t.datetime "last_wei"
     t.boolean  "is_weiting"
-    t.string   "encrypted_password",                default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                     default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
-    t.string   "address"
-    t.float    "latitude",               limit: 24
-    t.float    "longitude",              limit: 24
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "avatar"
