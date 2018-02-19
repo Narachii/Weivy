@@ -16,7 +16,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    binding.pry
     if @user.update(edit_user_params)
       #updateが完了したら一覧ページへリダイレクト
       redirect_to user_path(@user.id)
