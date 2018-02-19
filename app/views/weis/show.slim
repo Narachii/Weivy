@@ -1,3 +1,15 @@
-h1 Wei!!!
+.weis.show
+  .balloon1
+    span.wei wei!!
+  = image_tag @sender.icon
+  = image_tag @receiver.icon
 
-= link_to "場所確認！", complete_wei_path(@wei)
+  .description
+    p
+      | 50m ~ 100m以内にいる
+    p
+      | wei友を見つけましょう！
+  button.btn.go-btn
+    = link_to "Go Wei！", complete_wei_path(@wei)
+  div
+  = link_to "Topに戻る", user_path(current_user), class: "top-link"
