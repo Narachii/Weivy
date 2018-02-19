@@ -6,7 +6,7 @@
       | しやすくなるよ！
 
   .user_image
-    = image_tag "top.jpg"
+    = image_tag @user.icon
 
   = form_for @user do |f|
     .field
