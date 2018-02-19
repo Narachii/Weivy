@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show,:update,:edit]
 
   def new
-    # TODO Facebookから返ってきた後のロジック入れる
-    render layout: "statics_application"
+    @user = current_user
   end
 
   def show
@@ -13,6 +13,27 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user   
+  end
 
+  def update
+    binding.pry
+    if @user.update(edit_user_params)
+      #updateが完了したら一覧ページへリダイレクト
+      redirect_to user_path(@user.id)
+    else
+      #updateを失敗すると編集ページへ
+      render 'edit'
+    end
+  end
+
+
+  private
+  
+  def edit_user_params
+    params.require(:user).permit(:nickname)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end
