@@ -14,7 +14,7 @@
     - @users.each.with_index do |user, i|
       div.user_wrapper data-user-id="#{i + 1}"
         = image_tag user.avatar
-        .balloon1
+        .balloon1.send_wei data-wei-id="#{i + 1}"
           = simple_form_for(@wei) do |f|
             = f.hidden_field :sender, class: "sender_#{i + 1}", value: current_user.id
             = f.hidden_field :receiver, class: "receiver_#{i + 1}", value: user.id
