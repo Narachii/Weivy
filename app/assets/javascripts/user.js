@@ -4,12 +4,12 @@ $(document).ready(function(){
     $(this).parent().parent().addClass("active")
   });
   if (location.search == "?request_wei=true") {
-    $(".right").addClass("active-tab")
-    $(".nav").css({'padding-top': '0px'})
-    $(".right").find("a").css({color: 'black'})
+    $(".btn-right").addClass("active-tab")
+    $(".nav").css({'margin-top': '0px'})
+    $(".btn-right").find("a").css({color: 'black'})
   } else {
-      $(".left").addClass("active-tab")
-      $(".nav").css({'padding-top': '0px'})
-      $(".left").find("a").css({color: 'black'})
+      $(".btn-left").addClass("active-tab")
+      $(".nav").css({'margin-top': '0px'})
+      $(".btn-left").find("a").css({color: 'black'})
   }
 });
