@@ -1,15 +1,18 @@
 .weis.show
-  .balloon1
-    span.wei wei!!
-  = image_tag @sender.avatar
-  = image_tag @receiver.avatar
+  .main
+    .wrapper-balloon
+      .balloon1
+        span.wei wei!!
+    .wrapper-weiers
+      = image_tag @sender.avatar
+      = image_tag @receiver.avatar
 
-  .description
-    p
-      | 50m ~ 100m以内にいる
-    p
-      | wei友を見つけましょう！
-  button.btn.go-btn
-    = link_to "Go Wei！", complete_wei_path(@wei)
-  div
-  = link_to "Topに戻る", user_path(current_user), class: "top-link"
+    .description
+      p
+        | 50m ~ 100m以内にいる
+      p
+        | wei友を見つけましょう！
+    button.btn.go-btn
+      = link_to "Go Wei！", complete_wei_path(@wei)
+    .bottom
+      = link_to "Topに戻る", user_path(current_user), class: "top-link"
