@@ -1,13 +1,29 @@
 .users.show
-  ul.nav
-    li.btn.tab-btn.left
-      = link_to "Send_wei", user_path(current_user)
-    li.btn.tab-btn.right
-      = link_to "Wei request", user_path(current_user, request_wei: "true")
-  - if params[:request_wei].present?
-    - @request_users.each_with_index do |user, i|
-      div.user_wrapper data-user-id="#{i + 1}"
-        = render user
+  .main
+    ul.nav
+      .box
+        li.btn.tab-btn
+          = link_to "Send_wei", user_path(current_user)
+      .box
+        li.btn.tab-btn
+          = link_to "Wei request", user_path(current_user, request_wei: "true")
+    - if params[:request_wei].present?
+      - @request_users.each_with_index do |user, i|
+        div.user_wrapper data-user-id="#{i + 1}"
+          = render user
+    - else
+      - @users.each.with_index do |user, i|
+        div.user_wrapper data-user-id="#{i + 1}"
+          = image_tag user.avatar
+          .balloon1
+            = simple_form_for(@wei) do |f|
+              = f.hidden_field :sender, class: "sender_#{i + 1}", value: current_user.id
+              = f.hidden_field :receiver, class: "receiver_#{i + 1}", value: user.id
+              = f.button :submit, "Wei!!", id: "wei_button", class: "wei"
+        - if Rails.env.development?
+          span #{user.nickname}
+        - if Rails.env.development?
+          span #{user.nickname}
       - if Rails.env.development?
         = user.nickname
   - else
@@ -26,6 +42,6 @@
       div = current_user.id
     = link_to "ログアウト", destroy_user_session_path, method: :delete
 
-  javascript:
+javascript:
 
-    getLocation()
+  getLocation()
