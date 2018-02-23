@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $(".wei").on('click', function (){
+  $(".wei-button").on('click', function (){
     $(this).addClass("active");
     $(this).parent().parent().addClass("active")
   });

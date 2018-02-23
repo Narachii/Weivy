@@ -19,7 +19,7 @@
             = simple_form_for(@wei) do |f|
               = f.hidden_field :sender, class: "sender_#{i + 1}", value: current_user.id
               = f.hidden_field :receiver, class: "receiver_#{i + 1}", value: user.id
-              = f.button :submit, "Wei!!", id: "wei_button", class: "wei"
+              = f.button :submit, "Wei!!", id: "wei_button", class: "wei wei-button"
         - if Rails.env.development?
           span #{user.nickname}
       - if Rails.env.development?

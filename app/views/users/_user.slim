@@ -2,4 +2,4 @@
 .balloon1
   = simple_form_for(user.weis.find_by(receiver: current_user.id)) do |f|
     = f.hidden_field :wei, value: current_user.id
-    = f.button :submit, "Wei!!", class: "wei"
+    = f.button :submit, "Wei!!", class: "wei wei-button"
